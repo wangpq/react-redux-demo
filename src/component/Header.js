@@ -3,9 +3,9 @@ import React, { PureComponent } from 'react';
 class Header extends PureComponent {
   render() {
     return (
-      <div>
-       欢迎学习react+redux
-      </div>
+      <h1 style={{"margin": "12px 0","fontSize":"16px"}}>
+       cnode社区文章查询
+      </h1>
     )
   }
 }

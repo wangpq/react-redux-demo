@@ -9,10 +9,10 @@ class Detail extends PureComponent {
     let topic=this.topic;
     return (
       <div style={{"padding":"12px","backgroundColor":"#f0f0f0"}}>
-        <h2 style={{"color":"#cc0","marginBottom":"10px"}}>{topic.title}</h2>
+        <h2 style={{"color":"#0a0","marginBottom":"10px"}}>{topic.title}</h2>
         <div style={{"fontSize":"14px","color":"#888","marginBottom":"12px"}}>{topic.author.loginname} 发表于 {topic.create_at} </div>
 
-        <div dangerouslySetInnerHTML={{ __html: topic.content }} />
+        <div style={{"overflow":"hidden"}} dangerouslySetInnerHTML={{ __html: topic.content }} />
       </div>
     )
   }

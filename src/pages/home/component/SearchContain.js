@@ -1,17 +1,18 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {SearchTopics} from '../style';
+
 
 class SearchContain extends PureComponent {
   render() {
     const topics = this.props.searchTopics.toJS();
     return (
-      <ul>
+      <SearchTopics>
         {
           topics.map(item => { 
             return (
-              <li key={item.id} style={{"listStyle":"none","padding":"12px","backgroundColor":"#f0f0f0","margin":"8px"}} >
-          
+              <li key={item.id}>
                   <div className="search-container">
                     <Link to={{ pathname: `/detail/${item.id}/`, state: { data: item } }} key={item.id}>
                       <img className="search-item-pic" src={item.author.avatar_url} alt="" style={{display:"inline-block","maxWidth":"100%"}}/>
@@ -19,17 +20,14 @@ class SearchContain extends PureComponent {
                     </Link>
                   </div>
                   <div>
-                    <div className="author">
-                      作者：{item.author.loginname}
-                      被浏览：{item.visit_count}次
-                    </div>
+                    作者：{item.author.loginname} &nbsp;&nbsp;
+                    被浏览：{item.visit_count}次
                   </div>
-          
               </li>
             )
           })
         }
-      </ul>
+      </SearchTopics>
     );
   }
 }

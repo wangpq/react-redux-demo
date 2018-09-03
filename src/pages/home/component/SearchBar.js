@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Input,Button } from 'element-react';
 import {connect} from 'react-redux';
 import {action}  from '../store';
+import {SearchWraper} from '../style';
+
 
 class SearchBar extends PureComponent {
   constructor(props){
@@ -39,12 +41,14 @@ class SearchBar extends PureComponent {
     */
 
     return (
-      <div>
-        <div className="search">
-          <div style={{"display":"inline-block","width":"180px","marginRight":"8px"}}><Input size="small" placeholder="请输入搜索关键字" onChange={this.onChange.bind(this)} onKeyDown={this.onKeyDown.bind(this)}/></div>
+      <SearchWraper>
+        <div className="item">
+          <Input size="small" placeholder="请输入搜索关键字" onChange={this.onChange.bind(this)} onKeyDown={this.onKeyDown.bind(this)}/>
+        </div>
+        <div className="item">
           <Button type="primary" icon="search" size="small" onClick={this.searchInfo.bind(this)}>搜索</Button>
         </div>
-      </div>
+     </SearchWraper>
     )
   }
 }

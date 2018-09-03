@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
 import {action}  from '../store';
 import SearchContain from './SearchContain';
+import {SearchTips} from '../style';
 
 class SearchResult extends PureComponent {
   render() {
@@ -10,15 +11,15 @@ class SearchResult extends PureComponent {
       <div>
         {
           isShowed && this.props.keyword ? 
-          <div>
             <div>
+            <SearchTips>
               <h2 className="title">
-                <i >关键词《<i className="keyword">{this.props.keyword}</i>》的搜索：</i>
+                关键词《<b className="keyword">{this.props.keyword}</b>》的搜索：  <span className="clear" onClick={handleClosed}>删除所有</span>
               </h2>
-              <span className="close" onClick={handleClosed}>删除</span>
-            </div>
+            </SearchTips>
             <SearchContain/>
-          </div> :
+            </div>
+             :
           null
         }
       </div>
